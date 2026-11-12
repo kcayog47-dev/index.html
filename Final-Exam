@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: #14213d;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h2 {
+            color: #fca311;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #fca311;
+        }
+
+        /* HOME */
+        .home {
+            min-height: 400px;
+            background: linear-gradient(135deg, #14213d, #30466e);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .home h1 {
+            font-size: 40px;
+            color: #fca311;
+        }
+
+        .home p {
+            margin: 15px 0;
+        }
+
+        .main-button {
+            display: inline-block;
+            background: #fca311;
+            color: #14213d;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .main-button:hover {
+            background: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 55px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #14213d;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #14213d;
+            margin-bottom: 10px;
+        }
+
+        /* SKILLS */
+        .skill-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: #14213d;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 20px;
+        }
+
+        /* IT QUIZ GAME */
+        .game-card {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .game-card h3 {
+            color: #14213d;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .game-area {
+            margin-top: 20px;
+        }
+
+        #question {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .answer-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .game-button {
+            background: #14213d;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .game-button:hover {
+            background: #fca311;
+            color: #14213d;
+        }
+
+        .game-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .game-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .game-button.secondary {
+            background: #fca311;
+            color: #14213d;
+        }
+
+        #feedback {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .score {
+            color: #14213d;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* SPECIAL GIFT REWARD */
+        .reward-box {
+            display: none;
+            background: #fff8e7;
+            border: 2px solid #fca311;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            animation: popUp 0.7s ease;
+        }
+
+        .reward-box h2 {
+            color: #d48806;
+            margin-bottom: 10px;
+        }
+
+        .gift-icon {
+            font-size: 70px;
+            margin: 10px;
+        }
+
+        .reward-box p {
+            margin: 10px 0;
+        }
+
+        .reward-title {
+            color: #14213d;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        @keyframes popUp {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* JAVA CODE */
+        pre {
+            background: #14213d;
+            color: #fca311;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #14213d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+                gap: 12px;
+            }
+
+            nav a {
+                display: inline-block;
+                font-size: 13px;
+            }
+
+            .home h1 {
+                font-size: 30px;
+            }
+
+            .answer-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <h2>My Portfolio</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#games">Games</a>
+            <a href="#java">Java Code</a>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="home" id="home">
+        <h1>Hello, I'm Kimberly C. Cayog!</h1>
+        <p>Welcome to my Personal Portfolio Website.</p>
+        <p>BS Information Technology Student</p>
+        <a href="#about" class="main-button">Explore My Portfolio</a>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+        <h2>Personal Information</h2>
+
+        <div class="card">
+            <h3>About Me</h3>
+            <p><strong>Name:</strong> Kimberly C. Cayog</p>
+            <p><strong>Age:</strong> 18 o/y</p>
+            <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+            <p><strong>Hobbies:</strong> Listening to music, learning new things, and exploring technology.</p>
+            <p><strong>Goal:</strong> To become a successful and responsible professional someday.</p>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2>Educational Background</h2>
+
+        <div class="card">
+            <h3>College</h3>
+            <p>School Name</p>
+            <p>Bachelor of Science in Information Technology</p>
+        </div>
+
+        <div class="card">
+            <h3>Senior High School</h3>
+            <p>Guimba Senior High School</p>
+            <p>Strand: Humanities and Social Sciences</p>
+        </div>
+
+        <div class="card">
+            <h3>Junior High School</h3>
+            <p>Bartolome Sangalang National High School</p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>My Skills</h2>
+
+        <div class="skill-list">
+            <span class="skill">Communication</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Creativity</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">Java</span>
+        </div>
+    </section>
+
+    <!-- PLAYABLE GAME -->
+    <section id="games">
+        <h2>Playable Games</h2>
+
+        <div class="game-card">
+            <h3>💻 IT Knowledge Quiz</h3>
+
+            <p>
+                Test your knowledge about computers,
+                programming, and Information Technology!
+            </p>
+
+            <div class="game-area">
+
+                <p id="question">Click Start Quiz to begin!</p>
+
+                <div class="answer-buttons" id="answerButtons"></div>
+
+                <p id="feedback"></p>
+
+                <p class="score" id="score">Score: 0 / 5</p>
+
+                <div class="game-buttons">
+                    <button class="game-button" id="startButton"
+                        onclick="startQuiz()">
+                        Start Quiz
+                    </button>
+
+                    <button class="game-button secondary" id="nextButton"
+                        onclick="nextQuestion()" hidden>
+                        Next Question
+                    </button>
+
+                    <button class="game-button secondary" id="restartButton"
+                        onclick="startQuiz()" hidden>
+                        Play Again
+                    </button>
+                </div>
+
+                <!-- SPECIAL GIFT REWARD -->
+                <div class="reward-box" id="rewardBox">
+                    <div class="gift-icon">🎁</div>
+
+                    <h2>🎉 Congratulations! 🎉</h2>
+
+                    <p class="reward-title">PERFECT SCORE!</p>
+
+                    <p>
+                        You've answered all 5 questions correctly!
+                        Your hard work and IT knowledge deserve a reward.
+                    </p>
+
+                    <h3>🏆 IT QUIZ CHAMPION 🏆</h3>
+
+                    <p>
+                        You've unlocked your special gift!
+                        Keep learning, keep growing, and never stop
+                        exploring the world of technology!
+                    </p>
+                </div>
+
+                <!-- MESSAGE FOR OTHER SCORES -->
+                <div class="reward-box" id="tryAgainBox">
+                    <div class="gift-icon">🌟</div>
+
+                    <h2>Good Job!</h2>
+
+                    <p>
+                        You completed the IT Knowledge Quiz!
+                        Every question is a chance to learn something new.
+                        Keep practicing and try again to unlock the
+                        special reward!
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- JAVA CODE -->
+    <section id="java">
+        <h2>My Java Code</h2>
+
+        <div class="card">
+            <h3>Simple Java Program</h3>
+
+            <pre><code>public class Main {
+    public static void main(String[] args) {
+
+        String name = "Student";
+        int age = 18;
+
+        System.out.println("Hello, " + name);
+        System.out.println("Your age is " + age);
+        System.out.println("Welcome to IT!");
+
+    }
+}</code></pre>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 My Personal Portfolio</p>
+        <p>Designed by Your Name | BSIT Student</p>
+    </footer>
+
+    <!-- JAVASCRIPT: IT QUIZ -->
+    <script>
+        const questions = [
+            {
+                question: "What does CPU stand for?",
+                answers: [
+                    "Central Processing Unit",
+                    "Computer Personal Unit",
+                    "Central Program Utility",
+                    "Control Processing User"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which language is commonly used to create web pages?",
+                answers: [
+                    "Java",
+                    "HTML",
+                    "Python",
+                    "C++"
+                ],
+                correct: 1
+            },
+            {
+                question: "Which device is used to type information?",
+                answers: [
+                    "Monitor",
+                    "Speaker",
+                    "Keyboard",
+                    "Printer"
+                ],
+                correct: 2
+            },
+            {
+                question: "What does RAM stand for?",
+                answers: [
+                    "Random Access Memory",
+                    "Read Access Machine",
+                    "Run All Memory",
+                    "Rapid Application Mode"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which one is an example of an operating system?",
+                answers: [
+                    "Google Chrome",
+                    "Microsoft Word",
+                    "Windows",
+                    "HTML"
+                ],
+                correct: 2
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        const questionElement = document.getElementById("question");
+        const answerButtons = document.getElementById("answerButtons");
+        const feedbackElement = document.getElementById("feedback");
+        const scoreElement = document.getElementById("score");
+
+        const startButton = document.getElementById("startButton");
+        const nextButton = document.getElementById("nextButton");
+        const restartButton = document.getElementById("restartButton");
+
+        const rewardBox = document.getElementById("rewardBox");
+        const tryAgainBox = document.getElementById("tryAgainBox");
+
+        // START QUIZ
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            answered = false;
+
+            startButton.hidden = true;
+            restartButton.hidden = true;
+            nextButton.hidden = true;
+
+            rewardBox.style.display = "none";
+            tryAgainBox.style.display = "none";
+
+            showQuestion();
+        }
+
+        // SHOW QUESTION
+        function showQuestion() {
+            answered = false;
+
+            const current = questions[currentQuestion];
+
+            questionElement.textContent =
+                "Question " + (currentQuestion + 1) +
+                ": " + current.question;
+
+            answerButtons.innerHTML = "";
+            feedbackElement.textContent = "";
+
+            scoreElement.textContent =
+                "Score: " + score + " / " + questions.length;
+
+            current.answers.forEach(function(answer, index) {
+                const button = document.createElement("button");
+
+                button.textContent = answer;
+                button.className = "game-button";
+
+                button.onclick = function() {
+                    checkAnswer(index);
+                };
+
+                answerButtons.appendChild(button);
+            });
+        }
+
+        // CHECK ANSWER
+        function checkAnswer(selected) {
+            if (answered) {
+                return;
+            }
+
+            answered = true;
+
+            const correctAnswer = questions[currentQuestion].correct;
+            const buttons = answerButtons.querySelectorAll("button");
+
+            buttons.forEach(function(button) {
+                button.disabled = true;
+            });
+
+            if (selected === correctAnswer) {
+                score++;
+                feedbackElement.textContent = "Correct! Great job!";
+            } else {
+                feedbackElement.textContent =
+                    "Incorrect! The correct answer is: " +
+                    questions[currentQuestion].answers[correctAnswer];
+            }
+
+            scoreElement.textContent =
+                "Score: " + score + " / " + questions.length;
+
+            nextButton.hidden = false;
+
+            nextButton.textContent =
+                currentQuestion === questions.length - 1
+                ? "See Result"
+                : "Next Question";
+        }
+
+        // NEXT QUESTION
+        function nextQuestion() {
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        // SHOW FINAL RESULT AND REWARD
+        function showResult() {
+            questionElement.textContent = "Quiz Completed!";
+
+            answerButtons.innerHTML = "";
+
+            feedbackElement.textContent =
+                "You got " + score + " out of " +
+                questions.length + " correct answers!";
+
+            scoreElement.textContent =
+                "Final Score: " + score + " / " + questions.length;
+
+            nextButton.hidden = true;
+            restartButton.hidden = false;
+
+            if (score === questions.length) {
+                rewardBox.style.display = "block";
+                tryAgainBox.style.display = "none";
+            } else {
+                rewardBox.style.display = "none";
+                tryAgainBox.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
